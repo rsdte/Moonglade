@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Moonglade.Domain
 {
     public abstract class EntityBase : IEntity<int>
     {
-        [Key]
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
@@ -20,6 +21,6 @@ namespace Moonglade.Domain
         public DateTime UpdatedTime { get; set; } = DateTime.Now;
 
         [Required]
-        public DateTime UpdatedUserId { get; set; }
+        public int UpdatedUserId { get; set; }
     }
 }
