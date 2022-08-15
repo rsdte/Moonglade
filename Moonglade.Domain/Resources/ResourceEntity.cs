@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Moonglade.Domain.Resources
+namespace Moonglade.Domain
 {
     public enum ResourceType : byte
     {

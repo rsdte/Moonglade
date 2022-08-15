@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Moonglade.Domain.RoleResources
+namespace Moonglade.Domain
 {
     public class RoleResourceEntity : EntityBase
     {

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Web", "Moonglade.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Domain", "Moonglade.Domain\Moonglade.Domain.csproj", "{9E5DCADF-1267-4432-8C98-20E25E5B1838}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Domain.Shared", "Moonglade.Domain.Shared\Moonglade.Domain.Shared.csproj", "{CD517BE8-1AC6-44D8-98B9-6DAC4F168BF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9E5DCADF-1267-4432-8C98-20E25E5B1838}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E5DCADF-1267-4432-8C98-20E25E5B1838}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E5DCADF-1267-4432-8C98-20E25E5B1838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD517BE8-1AC6-44D8-98B9-6DAC4F168BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD517BE8-1AC6-44D8-98B9-6DAC4F168BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD517BE8-1AC6-44D8-98B9-6DAC4F168BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD517BE8-1AC6-44D8-98B9-6DAC4F168BF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

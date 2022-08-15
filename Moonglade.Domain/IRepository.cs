@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
 namespace Moonglade.Domain
 {
     public interface IRepository<TEntity, TKey>
     {
-        void Insertable(TEntity entity);
-        void Insertable(TEntity[] entities);
-        void Updateable(TEntity entity);
-        void Updateable(TEntity[] entities);
-        void Deleteable(TEntity entity);
-        TEntity GetById(TKey id);
-        TEntity Find(Expression<Func<TEntity, bool>> expression);
-        IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> expression);
-        IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> expression, Expression<Func<TEntity, object>> orderby, bool isDesc);
-        IPage<TEntity> GetPage(Expression<Func<TEntity, bool>> expression, Expression<Func<TEntity, object>> orderby, bool isDesc, int pageIndex, int pageSize);
+        Task<bool> InsertableAsync(TEntity entity);
+        Task<bool> InsertableAsync(TEntity[] entities);
+        Task<bool> UpdateableAsync(TEntity entity);
+        Task<bool> UpdateableAsync(TEntity[] entities);
+        Task<bool> DeleteableAsync(TEntity entity);
+        Task<TEntity?> GetByIdAsync(TKey id);
+        Task<TEntity?> FindAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, object>> orderby, bool isDesc);
+        Task<IPage<TEntity>> GetPageAsync(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, object>> orderby, bool isDesc, int pageIndex, int pageSize);
     }
 }

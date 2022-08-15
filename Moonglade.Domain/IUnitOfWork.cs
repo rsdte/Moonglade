@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moonglade.Domain.Resources
+namespace Moonglade.Domain
 {
-    public interface ResourceRepository : IRepository<ResourceEntity, int>
+    internal class IUnitOfWork
     {
     }
 }

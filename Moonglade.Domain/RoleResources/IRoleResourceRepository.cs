@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moonglade.Domain.UserRoles
+namespace Moonglade.Domain
 {
-    public interface UserRoleRepository : IRepository<UserRoleEntity, int>
+    public interface IRoleResourceRepository : IRepository<RoleResourceEntity, int>
     {
     }
 }
