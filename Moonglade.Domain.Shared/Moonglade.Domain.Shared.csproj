@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Moonglade.Domain\Moonglade.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commons\" />
+  </ItemGroup>
+
 </Project>

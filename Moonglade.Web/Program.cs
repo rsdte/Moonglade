@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Moonglade.Application;
 using Moonglade.Domain.Shared;
+using Moonglade.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,7 @@ builder.Services.AddAuthorization()
             config.TokenValidationParameters = jwtConfig.TokenValidationParameters;
         });
 
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddMvcOptions(opts => opts.Filters.Add<GlobalExceptionFilter>());
 
 var app = builder.Build();
 

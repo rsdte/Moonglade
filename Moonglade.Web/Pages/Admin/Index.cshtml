@@ -70,6 +70,7 @@
                         <input type="password" id="password" name="password" lay-verify="password" autocomplete="off" class="layui-input">
                     </div>
                 </div>
+                @Html.AntiForgeryToken()
             </div>
             <button type="button" class="layui-btn" onclick="login()">登录</button>
         </div>
@@ -83,16 +84,18 @@
             let pwd = $("#password").val();
             let type = 1;
             $.ajax({
-                url: '/auth/login',
-                data: {
+                url: '?handler=SignIn',
+                data: JSON.stringify({
                     UserName: name,
                     Password: pwd,
-                },
+                }),
+                contentType: 'application/json',
                 beforeSend: function(xhr) {
                     let token = localStorage.getItem("token");
                     if (token !== null) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                     }
+                    xhr.setRequestHeader("RequestVerificationToken", $('input:hidden[name="__RequestVerificationToken"]').val());
                 },
                 type: 'post',
                 success: function(resp) {
@@ -100,7 +103,7 @@
                     if (resp.code == 200) {
                         // 登录成功.
                         localStorage.setItem("token", resp.data);
-                        window.location.href = '/home'
+                        window.location.href = '/admin/dashboard'
                         return;
                     }
                     layer.open({
