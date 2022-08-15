@@ -1,0 +1,139 @@
+﻿@page
+@model Moonglade.Web.Pages.Admin.IndexModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MiniShop.Web</title>
+    <link rel="stylesheet" href="~/lib//layui/css/layui.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <style type="text/css">
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            background-image: url("/images/login-background.jpg");
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .container > .login-div {
+                width: 330px;
+                height: 257px;
+                border: 1px solid #bedeea;
+                padding: 20px;
+            }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+        }
+
+        .layui-btn {
+            width: 100%;
+        }
+
+        .login-title {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0px 40px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-div">
+            <h2 class="login-title">后台系统登录</h2>
+            <div class="layui-form-item form-container">
+                <div class="layui-inline">
+                    <label class="layui-form-label">账号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="username" name="username" lay-verify="required|username" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" id="password" name="password" lay-verify="password" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="layui-btn" onclick="login()">登录</button>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/layui/layui.js"></script>
+
+    <script>
+        function login() {
+            let name = $("#username").val();
+            let pwd = $("#password").val();
+            let type = 1;
+            $.ajax({
+                url: '/auth/login',
+                data: {
+                    UserName: name,
+                    Password: pwd,
+                },
+                beforeSend: function(xhr) {
+                    let token = localStorage.getItem("token");
+                    if (token !== null) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+                    }
+                },
+                type: 'post',
+                success: function(resp) {
+                    console.log('success', resp, resp.code)
+                    if (resp.code == 200) {
+                        // 登录成功.
+                        localStorage.setItem("token", resp.data);
+                        window.location.href = '/home'
+                        return;
+                    }
+                    layer.open({
+                        type: 1
+                        , offset: 'auto' //具体配置参考：https://www.layuiweb.com/doc/modules/layer.html#offset
+                        , id: 'layerDemo' + type //防止重复弹出
+                        , content: '<div style="padding: 20px 100px;">' + resp.message + '</div>'
+                        , btn: '关闭'
+                        , btnAlign: 'c' //按钮居中
+                        , shade: 0 //不显示遮罩
+                        , yes: function() {
+                            layer.closeAll();
+                        }
+                    });
+                },
+                error: function(msg) {
+                    console.log(msg);
+                    layer.open({
+                        type: 1
+                        , offset: type //具体配置参考：https://www.layuiweb.com/doc/modules/layer.html#offset
+                        , id: 'layerDemo' + type //防止重复弹出
+                        , content: '<div style="padding: 20px 100px;">' + msg + '</div>'
+                        , btn: '关闭'
+                        , btnAlign: 'c' //按钮居中
+                        , shade: 0 //不显示遮罩
+                        , yes: function() {
+                            layer.closeAll();
+                        }
+                    });
+
+                }
+            })
+        }
+    </script>
+</body>
+</html>
