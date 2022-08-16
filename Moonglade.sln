@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Web", "Moonglade.Web\Moonglade.Web.csproj", "{880D4FD7-D4CC-4A3A-B95E-B2A69A2CF6C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonglade.Web", "Moonglade.Web\Moonglade.Web.csproj", "{880D4FD7-D4CC-4A3A-B95E-B2A69A2CF6C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Domain", "Moonglade.Domain\Moonglade.Domain.csproj", "{9E5DCADF-1267-4432-8C98-20E25E5B1838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonglade.Domain", "Moonglade.Domain\Moonglade.Domain.csproj", "{9E5DCADF-1267-4432-8C98-20E25E5B1838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Domain.Shared", "Moonglade.Domain.Shared\Moonglade.Domain.Shared.csproj", "{CD517BE8-1AC6-44D8-98B9-6DAC4F168BF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonglade.Domain.Shared", "Moonglade.Domain.Shared\Moonglade.Domain.Shared.csproj", "{CD517BE8-1AC6-44D8-98B9-6DAC4F168BF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Application", "Moonglade.Application\Moonglade.Application.csproj", "{93A3CFFD-39A6-4991-8481-27AA98A4D3FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonglade.Application", "Moonglade.Application\Moonglade.Application.csproj", "{93A3CFFD-39A6-4991-8481-27AA98A4D3FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.Application.Contracts", "Moonglade.Application.Contracts\Moonglade.Application.Contracts.csproj", "{EB03D391-E47B-4952-838D-0203389D01A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonglade.Application.Contracts", "Moonglade.Application.Contracts\Moonglade.Application.Contracts.csproj", "{EB03D391-E47B-4952-838D-0203389D01A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

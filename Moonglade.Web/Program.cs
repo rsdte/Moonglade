@@ -17,17 +17,20 @@ builder.Services.AddRepositories();
 builder.Services.AddAllService();
 
 var jwtConfig = builder.Configuration.GetSection("JwtConfig").Get<JwtConfig>();
-builder.Services.AddAuthorization()
+builder.Services
         .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer("Bearer ", config =>
+        .AddJwtBearer(config =>
         {
             config.SaveToken = true;
             config.RequireHttpsMetadata = true;
             config.TokenValidationParameters = jwtConfig.TokenValidationParameters;
         });
 
-builder.Services.AddRazorPages().AddMvcOptions(opts => opts.Filters.Add<GlobalExceptionFilter>());
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddMvc(opts =>
+{
+    opts.Filters.Add<GlobalExceptionFilter>();
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,5 +46,17 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+            name: "areas",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+        );
+});
 
 app.Run();

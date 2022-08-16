@@ -1,6 +1,4 @@
-﻿@page
-@model Moonglade.Web.Pages.Admin.IndexModel
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -8,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MiniShop.Web</title>
+    <title>MiniShop.Web</title>
     <link rel="stylesheet" href="~/lib//layui/css/layui.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 
@@ -70,7 +68,6 @@
                         <input type="password" id="password" name="password" lay-verify="password" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                @Html.AntiForgeryToken()
             </div>
             <button type="button" class="layui-btn" onclick="login()">登录</button>
         </div>
@@ -84,7 +81,7 @@
             let pwd = $("#password").val();
             let type = 1;
             $.ajax({
-                url: '?handler=SignIn',
+                url: '/admin/auth/SignIn',
                 data: JSON.stringify({
                     UserName: name,
                     Password: pwd,
@@ -95,7 +92,6 @@
                     if (token !== null) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                     }
-                    xhr.setRequestHeader("RequestVerificationToken", $('input:hidden[name="__RequestVerificationToken"]').val());
                 },
                 type: 'post',
                 success: function(resp) {
