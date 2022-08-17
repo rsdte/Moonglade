@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Moonglade.Application.Contracts;
-using Moonglade.Application.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +13,7 @@ namespace Moonglade.Application
         public static IServiceCollection AddAllService(this IServiceCollection services)
         {
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IResourceService, ResourceService>();
             return services;
         }
     }

@@ -26,7 +26,7 @@
 function load_menu() {
 
     $.get({
-        url: '/dashboard/Menus',
+        url: '/admin/Permission/GetMenuTree',
         beforeSend: function (xhr) {
             let token = localStorage.getItem("token");
             if (token !== null) {
@@ -40,14 +40,14 @@ function load_menu() {
             res.data.forEach(function (item) {
                 if (item.hasChildren) {
                     htmls += '<li class="layui-nav-item">';
-                    htmls += '<a href="javascript:;">' + item.title + '</a>';
+                    htmls += '<a href="javascript:;">' + item.displayName + '</a>';
                     htmls += '<dl class="layui-nav-child">';
                     item.children.forEach(function (child) {
-                        htmls += '<dd><a href="' + child.link + '">' + child.title + '</a></dd>';
+                        htmls += '<dd><a href="' + child.link + '">' + child.displayName + '</a></dd>';
                     })
                     htmls += '</dl></li>';
                 } else {
-                    htmls += '<li class="layui-nav-item"> <a href="' + item.link + '">' + item.title + '</a></li>';
+                    htmls += '<li class="layui-nav-item"> <a href="' + item.link + '">' + item.displayName + '</a></li>';
                 }
             });
         }

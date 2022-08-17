@@ -12,10 +12,10 @@ namespace Moonglade.Domain
         public bool Deleted { get; set; } = false;
 
         [Required]
-        public DateTime CreateTime { get; set; }
+        public DateTime CreatedTime { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public int CreatedUserId { get; set; }
 
         [Required]
         public DateTime UpdatedTime { get; set; } = DateTime.Now;

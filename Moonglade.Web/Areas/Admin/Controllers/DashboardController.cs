@@ -7,7 +7,6 @@ namespace Moonglade.Web.Areas.Admin.Controllers
     public class DashboardController : Moonglade.Web.Commons.ControllerBase
     {
 
-        [Authorize]
         public IActionResult Index() => View();
 
 

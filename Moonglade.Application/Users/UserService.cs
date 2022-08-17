@@ -7,7 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Moonglade.Application.Users
+namespace Moonglade.Application
 {
     public class UserService : IUserService
     {

@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Moonglade.EntityFrameworkCore.Migrations
 {
-    public partial class updatedb : Migration
+    public partial class ModifyUserIDField2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,8 +20,8 @@ namespace Moonglade.EntityFrameworkCore.Migrations
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ResourceType = table.Column<byte>(type: "tinyint", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedUserId = table.Column<int>(type: "int", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedUserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -39,8 +39,8 @@ namespace Moonglade.EntityFrameworkCore.Migrations
                     RoleId = table.Column<int>(type: "int", nullable: false),
                     ResourceId = table.Column<int>(type: "int", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedUserId = table.Column<int>(type: "int", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedUserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -57,8 +57,8 @@ namespace Moonglade.EntityFrameworkCore.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedUserId = table.Column<int>(type: "int", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedUserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -76,7 +76,8 @@ namespace Moonglade.EntityFrameworkCore.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false),
                     RoleId = table.Column<int>(type: "int", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedUserId = table.Column<int>(type: "int", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedUserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -94,8 +95,8 @@ namespace Moonglade.EntityFrameworkCore.Migrations
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedUserId = table.Column<int>(type: "int", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedUserId = table.Column<int>(type: "int", nullable: false)
                 },

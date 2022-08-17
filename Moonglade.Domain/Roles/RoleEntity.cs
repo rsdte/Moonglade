@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Moonglade.Domain
 {
@@ -6,5 +7,8 @@ namespace Moonglade.Domain
     {
         [Required]
         public string Name { get; set; }
+
+        [Required, DefaultValue(0)]
+        public int SortNum { get; set; }
     }
 }

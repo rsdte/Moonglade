@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Moonglade.Application\Moonglade.Application.csproj" />
     <ProjectReference Include="..\Moonglade.Domain.Shared\Moonglade.Domain.Shared.csproj" />
+    <ProjectReference Include="..\Moonglade.EntityFrameworkCore.Migrations\Moonglade.EntityFrameworkCore.Migrations.csproj" />
   </ItemGroup>
 
 </Project>

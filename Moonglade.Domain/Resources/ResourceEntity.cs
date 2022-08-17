@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Moonglade.Domain
 {
@@ -18,7 +19,10 @@ namespace Moonglade.Domain
 
         public string? Url { get; set; }
 
-        [Required]
-        public ResourceType ResourceType { get; set; } = 0;
+        [Required, DefaultValue(0)]
+        public ResourceType ResourceType { get; set; }
+
+        [Required, DefaultValue(0)]
+        public int ParentId { get; set; }
     }
 }

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Moonglade.Domain;
 
 namespace Moonglade.Application.Contracts
 {
     public interface IResourceService
     {
+        Task<IEnumerable<ResourceEntity>> GetResources(int roleId);
+        Task<IEnumerable<ResourceEntity>> GetAllResources(IList<int> roleIds);
     }
 }
