@@ -1,4 +1,6 @@
-﻿namespace Moonglade.Domain.Shared
+﻿using Moonglade.Domain;
+
+namespace Moonglade.EntityFrameworkCore
 {
     public class UserRepository : RepositoryBase<UserEntity, int>, IUserRepository
     {
@@ -9,11 +11,11 @@
             this.dbContext = dbContext;
         }
 
-        public async override Task<bool> DeleteableAsync(UserEntity entity)
+        public override Task DeleteableAsync(UserEntity entity)
         {
             entity.Deleted = true;
             this.dbContext.Set<UserEntity>().Update(entity);
-            return await this.dbContext.SaveChangesAsync() > 0;
+            return Task.CompletedTask;
         }
     }
 }

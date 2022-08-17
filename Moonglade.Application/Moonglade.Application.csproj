@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Moonglade.Application.Contracts\Moonglade.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Moonglade.Domain\Moonglade.Domain.csproj" />
+    <ProjectReference Include="..\Moonglade.EntityFrameworkCore\Moonglade.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

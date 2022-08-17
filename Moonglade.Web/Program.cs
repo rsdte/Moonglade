@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Moonglade.Application;
-using Moonglade.Domain.Shared;
+using Moonglade.EntityFrameworkCore;
 using Moonglade.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);

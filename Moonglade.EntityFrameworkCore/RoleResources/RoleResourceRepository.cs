@@ -1,4 +1,6 @@
-﻿namespace Moonglade.Domain.Shared
+﻿using Moonglade.Domain;
+
+namespace Moonglade.EntityFrameworkCore
 {
     public class RoleResourceRepository : RepositoryBase<RoleResourceEntity, int>, IRoleResourceRepository
     {

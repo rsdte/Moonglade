@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Moonglade.Domain;
 
-namespace Moonglade.Domain.Shared
+namespace Moonglade.EntityFrameworkCore
 {
     public static class IServerCollectionExtensions
     {

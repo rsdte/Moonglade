@@ -1,5 +1,7 @@
 ﻿
-namespace Moonglade.Domain.Shared
+using Moonglade.Domain;
+
+namespace Moonglade.EntityFrameworkCore
 {
     public class UserRoleRepository : RepositoryBase<UserRoleEntity, int>, IUserRoleRepository
     {

@@ -8,7 +8,7 @@ using Moonglade.Domain.Shared;
 
 #nullable disable
 
-namespace Moonglade.Domain.Shared.Migrations
+namespace Moonglade.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(MoongladeDbContext))]
     partial class MoongladeDbContextModelSnapshot : ModelSnapshot

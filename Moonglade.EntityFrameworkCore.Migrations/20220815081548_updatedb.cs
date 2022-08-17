@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 #nullable disable
 
-namespace Moonglade.Domain.Shared.Migrations
+namespace Moonglade.EntityFrameworkCore.Migrations
 {
     public partial class updatedb : Migration
     {

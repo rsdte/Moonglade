@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonglade.Application", "Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonglade.Application.Contracts", "Moonglade.Application.Contracts\Moonglade.Application.Contracts.csproj", "{EB03D391-E47B-4952-838D-0203389D01A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.EntityFrameworkCore", "Moonglade.EntityFrameworkCore\Moonglade.EntityFrameworkCore.csproj", "{DC58A04D-028A-47D9-A350-0F2245EB789C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonglade.EntityFrameworkCore.Migrations", "Moonglade.EntityFrameworkCore.Migrations\Moonglade.EntityFrameworkCore.Migrations.csproj", "{5D7024F1-414E-496A-B75D-E76B97BD8BF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{EB03D391-E47B-4952-838D-0203389D01A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB03D391-E47B-4952-838D-0203389D01A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB03D391-E47B-4952-838D-0203389D01A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC58A04D-028A-47D9-A350-0F2245EB789C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC58A04D-028A-47D9-A350-0F2245EB789C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC58A04D-028A-47D9-A350-0F2245EB789C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC58A04D-028A-47D9-A350-0F2245EB789C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D7024F1-414E-496A-B75D-E76B97BD8BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D7024F1-414E-496A-B75D-E76B97BD8BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D7024F1-414E-496A-B75D-E76B97BD8BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D7024F1-414E-496A-B75D-E76B97BD8BF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

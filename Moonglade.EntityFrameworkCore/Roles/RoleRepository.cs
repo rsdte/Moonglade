@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Moonglade.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moonglade.Domain.Shared
+namespace Moonglade.EntityFrameworkCore
 {
     public class RoleRepository : RepositoryBase<RoleEntity, int>, IRoleRepository
     {

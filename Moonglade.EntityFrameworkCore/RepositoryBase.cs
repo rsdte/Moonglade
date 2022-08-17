@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Moonglade.Domain;
 using System.Linq.Expressions;
 
-namespace Moonglade.Domain.Shared
+namespace Moonglade.EntityFrameworkCore
 {
     public abstract class RepositoryBase<TEntity, TKey> : IRepository<TEntity, TKey>
         where TEntity : class

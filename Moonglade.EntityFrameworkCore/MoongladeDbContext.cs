@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Moonglade.Domain;
 
-namespace Moonglade.Domain.Shared
+namespace Moonglade.EntityFrameworkCore
 {
     public class MoongladeDbContext : DbContext
     {

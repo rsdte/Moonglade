@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Moonglade.Domain;
 
-namespace Moonglade.Domain.Shared
+namespace Moonglade.EntityFrameworkCore
 {
     public class UnitOfWork<TDbContext> : IUnitOfWork, IDisposable
         where TDbContext : DbContext
