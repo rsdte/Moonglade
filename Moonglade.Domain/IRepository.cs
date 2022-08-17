@@ -4,11 +4,11 @@ namespace Moonglade.Domain
 {
     public interface IRepository<TEntity, TKey>
     {
-        Task<bool> InsertableAsync(TEntity entity);
-        Task<bool> InsertableAsync(TEntity[] entities);
-        Task<bool> UpdateableAsync(TEntity entity);
-        Task<bool> UpdateableAsync(TEntity[] entities);
-        Task<bool> DeleteableAsync(TEntity entity);
+        Task InsertableAsync(TEntity entity);
+        Task InsertableAsync(TEntity[] entities);
+        Task UpdateableAsync(TEntity entity);
+        Task UpdateableAsync(TEntity[] entities);
+        Task DeleteableAsync(TEntity entity);
         Task<TEntity?> GetByIdAsync(TKey id);
         Task<TEntity?> FindAsync(Expression<Func<TEntity, bool>> predicate);
         Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate);

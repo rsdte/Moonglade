@@ -13,7 +13,7 @@ namespace Moonglade.Domain.Shared
             this.dbContext = dbContext;
         }
 
-        public abstract Task<bool> DeleteableAsync(TEntity entity);
+        public abstract Task DeleteableAsync(TEntity entity);
 
         public async Task<TEntity?> FindAsync(Expression<Func<TEntity, bool>> predicate)
         {
@@ -52,28 +52,26 @@ namespace Moonglade.Domain.Shared
             return page;
         }
 
-        public async Task<bool> InsertableAsync(TEntity entity)
+        public async Task InsertableAsync(TEntity entity)
         {
             await this.dbContext.Set<TEntity>().AddAsync(entity);
-            return await this.dbContext.SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> InsertableAsync(TEntity[] entities)
+        public Task InsertableAsync(TEntity[] entities)
         {
-            await this.dbContext.Set<TEntity>().AddRangeAsync(entities);
-            return await this.dbContext.SaveChangesAsync() > 0;
+            return this.dbContext.Set<TEntity>().AddRangeAsync(entities);
         }
 
-        public async Task<bool> UpdateableAsync(TEntity entity)
+        public Task UpdateableAsync(TEntity entity)
         {
             this.dbContext.Set<TEntity>().Update(entity);
-            return await this.dbContext.SaveChangesAsync() > 0;
+            return Task.CompletedTask;
         }
 
-        public async Task<bool> UpdateableAsync(TEntity[] entities)
+        public Task UpdateableAsync(TEntity[] entities)
         {
             this.dbContext.Set<TEntity>().UpdateRange(entities);
-            return await this.dbContext.SaveChangesAsync() > 0;
+            return Task.CompletedTask;
         }
     }
 }

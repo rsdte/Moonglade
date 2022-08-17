@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Moonglade.Domain
+﻿namespace Moonglade.Domain
 {
-    internal class IUnitOfWork
+    public interface IUnitOfWork
     {
+        bool Commit();
+        void Rollback();
+        void BeginTransaction();
+        int SaveChanges();
     }
 }
