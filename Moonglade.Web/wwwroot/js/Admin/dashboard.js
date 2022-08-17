@@ -22,40 +22,58 @@
         }
     });
 
-});
-function load_menu() {
 
-    $.get({
-        url: '/admin/Permission/GetMenuTree',
-        beforeSend: function (xhr) {
-            let token = localStorage.getItem("token");
-            if (token !== null) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-            }
-        },
-    }).done((res) => {
-        console.log('layout...', res);
-        let htmls = '';
-        if (res.code == 200) {
-            res.data.forEach(function (item) {
-                if (item.hasChildren) {
-                    htmls += '<li class="layui-nav-item">';
-                    htmls += '<a href="javascript:;">' + item.displayName + '</a>';
-                    htmls += '<dl class="layui-nav-child">';
-                    item.children.forEach(function (child) {
-                        htmls += '<dd><a href="' + child.link + '">' + child.displayName + '</a></dd>';
-                    })
-                    htmls += '</dl></li>';
-                } else {
-                    htmls += '<li class="layui-nav-item"> <a href="' + item.link + '">' + item.displayName + '</a></li>';
+    function load_menu() {
+        $.get({
+            url: '/admin/Permission/GetMenuTree',
+            beforeSend: function (xhr) {
+                let token = localStorage.getItem("token");
+                if (token !== null) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
                 }
-            });
-        }
-        var navele = document.getElementById('left_nav');
-        console.log(navele);
-        console.log(htmls);
-        navele.innerHTML = htmls;
-    });
-}
+            },
+        }).done((res) => {
+            let htmls = '';
+            if (res.code == 200) {
+                res.data.forEach(function (item) {
+                    //if (item.hasChildren) {
+                    //    htmls += '<li class="layui-nav-item ">';
+                    //    htmls += '<a href="javascript:;">' + item.displayName + '</a>';
+                    //    htmls += '<dl class="layui-nav-child">';
+                    //    item.children.forEach(function (child) {
+                    //        htmls += '<dd><a href="javascript:;" onClick="openTabs()">' + child.displayName + '</a></dd>';
+                    //    })
+                    //    htmls += '</dl></li>';
+                    //} else {
+                    //    htmls += '<li class="layui-nav-item"> <a href="' + item.link + '">' + item.displayName + '</a></li>';
+                    //}
+                    if (item.hasChildren) {
+                        item.children.forEach(function (child) {
+                            htmls += '<li class="layui-nav-item">';
+                            htmls += '<a data-url="' + child.link + '">'
+                            htmls += '<cite>' + child.displayName + '</cite>';
+                            htmls += '</a>';
+                            htmls += '</li>';
+                        })
+                    }
+                });
+            }
 
-load_menu();
+            var navele = document.getElementById('left_nav');
+            navele.innerHTML = htmls;
+            console.log(htmls);
+        });
+    }
+
+    function openTabs() {
+
+        element.tabAdd('demo', {
+            title: '新选项' + (Math.random() * 1000 | 0)
+            , content: '内容' + (Math.random() * 1000 | 0)
+            , id: new Date().getTime()
+        })
+
+    }
+    load_menu();
+
+});
