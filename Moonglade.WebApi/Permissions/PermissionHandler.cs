@@ -15,21 +15,18 @@ namespace Moonglade.WebApi.Permissions
 
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, PermissionRequirement requirement)
         {
-            var roleIds = context.User?.FindFirst("RoleIds")?.Value.Split(',').Where(x=> int.TryParse(x, out _)).Select(int.Parse).ToList();
-            if (roleIds is null)
-            {
-                context.Fail();
-                return;
-            }
-
             if (context.Resource is DefaultHttpContext httpContext)
             {
-                var url = httpContext.Request.Path.Value;
-                var resources = await resourceService.GetAllResources(roleIds);
-                if (resources !=null && resources.Any(resource => string.Compare(resource.Url, url, true) == 0))
+                var roleIds = context.User?.FindFirst("RoleIds")?.Value.Split(',').Where(x => int.TryParse(x, out _)).Select(int.Parse).ToList();
+                if (roleIds != null)
                 {
-                    context.Succeed(requirement);
-                    return;
+                    var url = httpContext.Request.Path.Value;
+                    var resources = await resourceService.GetAllResources(roleIds);
+                    if (resources != null && resources.Any(resource => string.Compare(resource.Url, url, true) == 0))
+                    {
+                        context.Succeed(requirement);
+                        return;
+                    }
                 }
             }
             context.Fail();
