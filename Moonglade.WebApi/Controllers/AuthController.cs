@@ -1,35 +1,40 @@
 ﻿
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Moonglade.Application.Contracts;
+using Moonglade.Application.Contracts.Dtos;
 using Moonglade.WebApi.Commons;
 
 namespace Moonglade.WebApi.Controllers
 {
-    public class AuthController : AuthApiControllerBase
+    public class AuthController : ApiAuthControllerBase
     {
+        private readonly IUserService userService;
+
+        public AuthController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
+
+
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Test()
         {
             return Ok("hello");
         }
 
         [HttpPost]
-        public IActionResult Sign([FromBody]LoginDto model)
+        [AllowAnonymous]
+        public async Task<IActionResult> SignIn([FromBody]LoginDto model)
         {
-
+            var token = await userService.GenerateTokenAsync(model);
             return new JsonResult(new
             {
                 Code = 200,
-                Data = "lksjdpfwboerlkwejroiwebrlwkejr",
+                Data = token,
                 Message = "success"
             });
         }
-    }
-
-    public class LoginDto
-    {
-        public string UserName { get; set; }
-        public string Password { get; set; }
     }
 }

@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Moonglade.Application;
 using Moonglade.EntityFrameworkCore;
 using Moonglade.WebApi.Filters;
+using Moonglade.WebApi.Permissions;
 
 var ALLSPECIFICORIGINS = "ALLSPECIFICORIGINS";
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +16,8 @@ builder.Services.AddDbContext<MoongladeDbContext>(opts =>
     var sqlServerConnectionString = builder.Configuration.GetConnectionString("SqlServer");
     opts.UseSqlServer(sqlServerConnectionString);
 });
-
+builder.Services.AddRepositories();
+builder.Services.AddAllService();
 builder.Services.AddCors(opts =>
 {
     opts.AddPolicy(
@@ -25,7 +28,12 @@ builder.Services.AddCors(opts =>
 
 
 var jwtConfig = builder.Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+builder.Services.AddScoped<IAuthorizationHandler, PermissionHandler>();
 builder.Services
+        .AddAuthorization(opts =>
+        {
+            opts.AddPolicy("Permission", policy => policy.Requirements.Add(new PermissionRequirement()));
+        })
         .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(config =>
         {
