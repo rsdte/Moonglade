@@ -48,7 +48,8 @@ namespace Moonglade.EntityFrameworkCore
             else
                 entities = this.dbContext.Set<TEntity>().Where(predicate).OrderBy(orderby);
             var count = await entities.CountAsync();
-            page.Count = (int)Math.Floor(count / pageSize * 0.1);
+            page.Count = count;
+            page.Index = (int)Math.Floor(count / pageSize * 0.1);
             page.Data = await entities.Skip(pageIndex - 1).Take(pageSize).ToListAsync();
             return page;
         }
