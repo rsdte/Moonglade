@@ -1,13 +1,14 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Moonglade.WebApi.Commons;
 
 namespace Moonglade.WebApi.Controllers
 {
-    [ApiController]
-    [Route("[controller]/[action]")]
-    public class AuthController : ControllerBase
+    public class AuthController : AuthApiControllerBase
     {
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Test()
         {
             return Ok("hello");
