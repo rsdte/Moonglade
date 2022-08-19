@@ -36,5 +36,10 @@ namespace Moonglade.Application
             var resources = await resourceRepository.GetAllAsync(s => !s.Deleted && resourceIds.Contains(s.Id));
             return resources;
         }
+
+        public Task<IEnumerable<ResourceEntity>> GetDetailResource(int resourceId)
+        {
+            return this.resourceRepository.GetAllAsync(res => res.ParentId == resourceId && !res.Deleted);
+        }
     }
 }
